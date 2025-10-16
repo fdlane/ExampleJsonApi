@@ -1,1 +1,1 @@
-Example project to proof OpenApi doc
+# Example project to proof OpenApi doc

@@ -1,10 +1,9 @@
-using JsonApiDotNetCore.Resources;
 using JsonApiDotNetCore.Resources.Annotations;
 
 namespace ExampleJsonApi.Entities;
 
 [Resource]
-public class Foo : Identifiable<long>
+public class Foo : AaaHopEntity
 {
   [Attr] public string DisplayName { get; set; } = null!;
 }

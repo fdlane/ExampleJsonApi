@@ -1,10 +1,10 @@
 using ExampleJsonApi.Entities;
 using Microsoft.EntityFrameworkCore;
 
+namespace ExampleJsonApi;
+
 public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
-
 {
-
   public DbSet<Bar> Bars => Set<Bar>();
   public DbSet<Foo> Foos => Set<Foo>();
   public DbSet<Person> People => Set<Person>();
@@ -19,13 +19,13 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
         FirstName = "John",
         LastName = "Doe",
         Children =
-            {
-                    new Person
-                    {
-                        FirstName = "Baby",
-                        LastName = "Doe"
-                    }
-            }
+        {
+          new Person
+          {
+            FirstName = "Baby",
+            LastName = "Doe"
+          }
+        }
       });
       await dbContext.SaveChangesAsync(cancellationToken);
     });
