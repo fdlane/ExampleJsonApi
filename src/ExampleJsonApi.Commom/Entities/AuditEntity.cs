@@ -1,0 +1,9 @@
+using JsonApiDotNetCore.Resources;
+using JsonApiDotNetCore.Resources.Annotations;
+
+namespace ExampleJsonApi.Commom.Entities;
+
+public abstract class AuditEntity : Identifiable<long>
+{
+  [Attr] public string? CreatedBy { get; set; } = null!;
+}

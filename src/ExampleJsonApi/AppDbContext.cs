@@ -5,7 +5,7 @@ namespace ExampleJsonApi;
 
 public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
 {
-  public DbSet<Bar> Bars => Set<Bar>();
+  public DbSet<xBar> XBars => Set<xBar>();
   public DbSet<Foo> Foos => Set<Foo>();
   public DbSet<Person> People => Set<Person>();
 
