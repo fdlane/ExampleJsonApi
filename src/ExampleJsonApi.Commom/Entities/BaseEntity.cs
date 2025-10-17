@@ -3,7 +3,7 @@ using JsonApiDotNetCore.Resources.Annotations;
 
 namespace ExampleJsonApi.Commom.Entities;
 
-public abstract class AuditEntity : Identifiable<long>
+public abstract class BaseEntity : Identifiable<long>
 {
   [Attr] public string? CreatedBy { get; set; } = null!;
 }

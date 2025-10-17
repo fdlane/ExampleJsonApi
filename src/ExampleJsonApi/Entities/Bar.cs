@@ -3,7 +3,7 @@ using JsonApiDotNetCore.Resources.Annotations;
 namespace ExampleJsonApi.Entities;
 
 [Resource]
-public class xBar : BaseEntity
+public class Bar : HopEntity
 {
   [Attr] public string DisplayName { get; set; } = null!;
 }

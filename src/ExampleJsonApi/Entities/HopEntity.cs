@@ -2,4 +2,4 @@ using ExampleJsonApi.Commom.Entities;
 
 namespace ExampleJsonApi.Entities;
 
-public abstract class BaseEntity : AuditEntity { }
+public abstract class HopEntity : BaseEntity { }
