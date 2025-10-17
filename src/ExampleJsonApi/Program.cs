@@ -9,7 +9,6 @@ builder.Services.AddJsonApi<AppDbContext>(options =>
   options.UseRelativeLinks = true;
   options.IncludeTotalResourceCount = true;
 });
-builder.Services.AddJsonApi<AppDbContext>();
 builder.Services.AddOpenApiForJsonApi();
 
 builder.Services.AddControllers();
@@ -19,6 +18,18 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 app.UseRouting();
 app.UseJsonApi();
+
+// Prevent caching of swagger JSON in development to avoid stale discriminator/type info.
+app.Use(async (ctx, next) =>
+{
+  if (ctx.Request.Path.StartsWithSegments("/swagger"))
+  {
+    ctx.Response.Headers.CacheControl = "no-store, no-cache, must-revalidate";
+    ctx.Response.Headers.Pragma = "no-cache";
+    ctx.Response.Headers.Expires = "0";
+  }
+  await next();
+});
 app.UseSwagger();
 app.UseSwaggerUI();
 app.MapControllers();

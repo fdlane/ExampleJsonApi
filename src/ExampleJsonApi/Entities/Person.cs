@@ -2,7 +2,7 @@ using JsonApiDotNetCore.Resources.Annotations;
 
 namespace ExampleJsonApi.Entities;
 
-[Resource]
+[Resource(PublicName = "people")]
 public class Person : HopEntity
 {
   [Attr] public string? FirstName { get; set; }
